@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8h6gg57qa20e"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_tgj76"]
+[ext_resource type="Texture2D" uid="uid://dkli46ql3kyds" path="res://images/the lodge1.jpg" id="1_xpgd1"]
+[ext_resource type="AudioStream" uid="uid://dtgd144faeq8j" path="res://music/Main menu.wav" id="2_s1thc"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tgj76")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 17.985
+offset_top = 508.0
+offset_right = 217.985
+offset_bottom = 650.0
+
+[node name="TheLodge1" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(535.015, -169)
+scale = Vector2(1.06, 0.957)
+texture = ExtResource("1_xpgd1")
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+alignment = 0
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+alignment = 0
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+alignment = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_s1thc")
+volume_db = -6.933
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="startButton"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="Quit_pressed"]
