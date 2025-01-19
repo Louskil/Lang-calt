@@ -21,12 +21,19 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if (event is InputEventMouseMotion) && !$Inventory.visible:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 		give_head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 		give_head.rotation.x = clamp(give_head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("Inventory"):
+		$Inventory.visible = !$Inventory.visible
+		if $Inventory.visible:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if Input.is_action_pressed("crouch"):
 		current_speed = crouching_speed

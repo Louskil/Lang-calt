@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyvduwn6p22kh"]
+[gd_scene load_steps=12 format=3 uid="uid://cyvduwn6p22kh"]
 
 [ext_resource type="Texture2D" uid="uid://ceot7v4hiqpiw" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_qnl17"]
 [ext_resource type="Texture2D" uid="uid://co2mbmhw5lppr" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_u65b8"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_k4d3e"]
+[ext_resource type="PackedScene" uid="uid://cg6y52i0tim1n" path="res://scenes/inventory.tscn" id="4_txesg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7y2xg"]
 albedo_texture = ExtResource("1_qnl17")
@@ -36,11 +37,11 @@ height = 1.2
 [node name="CSGBox3D" type="CSGBox3D" parent="stage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
-size = Vector3(20, 1, 20)
+size = Vector3(80, 1, 80)
 material = SubResource("StandardMaterial3D_7y2xg")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="stage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05459, 12.2392)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0728931, 2.14645, 12.1831)
 use_collision = true
 size = Vector3(20, 1, 20)
 material = SubResource("StandardMaterial3D_7y2xg")
@@ -103,3 +104,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="player"]
 target_position = Vector3(0, 2, 0)
+
+[node name="Inventory" parent="player" instance=ExtResource("4_txesg")]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
