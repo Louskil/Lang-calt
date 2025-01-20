@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://beolavduy0nrg"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://beolavduy0nrg"]
 
 [ext_resource type="Texture2D" uid="uid://c11627v24d0ud" path="res://icon.svg" id="1_ruaeb"]
 [ext_resource type="Script" path="res://scripts/Item.gd" id="1_ubgrb"]
+[ext_resource type="PackedScene" uid="uid://qfbchl56jeae" path="res://assets/models/casset.blend" id="2_esnmh"]
 
 [resource]
 script = ExtResource("1_ubgrb")
@@ -12,3 +13,4 @@ Icon = ExtResource("1_ruaeb")
 Quantity = 1
 StackSize = 10
 IsStackable = true
+Scene = ExtResource("2_esnmh")

@@ -8,6 +8,7 @@ class_name Item
 @export var Quantity : int
 @export var StackSize : int
 @export var IsStackable : bool
+@export var Scene: PackedScene
 #@export var Weight : float
 #@export var SubItem : Item
 #@export var SubItemFound : bool

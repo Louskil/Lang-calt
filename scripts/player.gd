@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var standing_collision_shape: CollisionShape3D = $standing_collision_shape
 @onready var crouching_collision_shape: CollisionShape3D = $crouching_collision_shape
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
+@onready var item_picker: RayCast3D = $give_head/pow
 
 @export var walking_speed = 5.0
 @export var sprinting_speed = 10.0
@@ -15,7 +16,8 @@ var crouching_depth = -0.5
 
 const jump_velocity = 9.0
 const mouse_sens = 0.3
-
+	
+var selected_object
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="_Item" load_steps=4 format=3 uid="uid://ru1yqbllpy56"]
+
+[ext_resource type="Texture2D" uid="uid://c11627v24d0ud" path="res://icon.svg" id="1_cq76g"]
+[ext_resource type="Script" path="res://scripts/resource_scripts/_item.gd" id="1_p78po"]
+[ext_resource type="PackedScene" uid="uid://qfbchl56jeae" path="res://assets/models/casset.blend" id="2_irbjt"]
+
+[resource]
+script = ExtResource("1_p78po")
+Id = "1"
+Name = "Casset"
+Description = "A simple casset. Test object"
+Icon = ExtResource("1_cq76g")
+Quantity = 1
+StackSize = 2
+Scene = ExtResource("2_irbjt")
