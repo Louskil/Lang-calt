@@ -8,5 +8,9 @@ func add_item(item: _Item):
 func remove_item(item: _Item):
 	_content.erase(item)
 
-func get_items(item: _Item):
+func get_items():
 	return _content
+
+func _test_get_items():
+	for i: _Item in _content:
+		print(i.Name)

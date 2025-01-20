@@ -3,7 +3,7 @@ extends CharacterBody3D
 @onready var give_head = $give_head
 @onready var standing_collision_shape: CollisionShape3D = $standing_collision_shape
 @onready var crouching_collision_shape: CollisionShape3D = $crouching_collision_shape
-@onready var ray_cast_3d: RayCast3D = $RayCast3D
+@onready var crouch_raycast: RayCast3D = $give_head/CrouchRayCast
 @onready var item_picker: RayCast3D = $give_head/pow
 
 @export var walking_speed = 5.0
@@ -16,8 +16,8 @@ var crouching_depth = -0.5
 
 const jump_velocity = 9.0
 const mouse_sens = 0.3
-	
-var selected_object
+
+var inventory: _Inventory = _Inventory.new()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -30,19 +30,12 @@ func _input(event):
 
 func _physics_process(delta: float) -> void:
 	
-	if Input.is_action_just_pressed("Inventory"):
-		$Inventory.visible = !$Inventory.visible
-		if $Inventory.visible:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
 	if Input.is_action_pressed("crouch"):
 		current_speed = crouching_speed
 		give_head.position.y = lerp(give_head.position.y, 1.8 + crouching_depth, delta*lerp_speed)
 		standing_collision_shape.disabled = true
 		crouching_collision_shape.disabled = false
-	elif !ray_cast_3d.is_colliding():
+	elif !crouch_raycast.is_colliding():
 		give_head.position.y = lerp(give_head.position.y, 1.8, delta*lerp_speed)
 		standing_collision_shape.disabled = false
 		crouching_collision_shape.disabled = true
