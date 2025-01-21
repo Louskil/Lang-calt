@@ -13,17 +13,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tgj76")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 17.985
-offset_top = 508.0
-offset_right = 217.985
-offset_bottom = 650.0
-
-[node name="TheLodge1" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(535.015, -169)
-scale = Vector2(1.06, 0.957)
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_xpgd1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -142.0
+offset_right = 220.0
+grow_vertical = 0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
