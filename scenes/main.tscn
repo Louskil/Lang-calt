@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=4 uid="uid://dnfk4xpw5cfiy"]
 
-[ext_resource type="PackedScene" path="res://assets/hdris/casset.tscn" id="1_bfmtq"]
+[ext_resource type="PackedScene" uid="uid://b7ugui7oj3fr0" path="res://assets/hdris/casset.tscn" id="1_bfmtq"]
 [ext_resource type="Texture2D" uid="uid://ceot7v4hiqpiw" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_qnl17"]
 [ext_resource type="Texture2D" uid="uid://co2mbmhw5lppr" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_u65b8"]
 [ext_resource type="Material" uid="uid://bpbtbbhj8bt04" path="res://assets/materials/item_outline.tres" id="2_wj5yr"]
