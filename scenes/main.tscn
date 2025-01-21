@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dnfk4xpw5cfiy"]
+[gd_scene load_steps=21 format=4 uid="uid://dnfk4xpw5cfiy"]
 
 [ext_resource type="PackedScene" uid="uid://b7ugui7oj3fr0" path="res://assets/hdris/casset.tscn" id="1_bfmtq"]
 [ext_resource type="Texture2D" uid="uid://ceot7v4hiqpiw" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_qnl17"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/dialog_scripts/ui_root.gd" id="9_xf14e"]
 [ext_resource type="PackedScene" uid="uid://bfs61rfrstusc" path="res://scenes/investigation_scene.tscn" id="10_g74l2"]
 [ext_resource type="PackedScene" uid="uid://b3bd8ii0gvew2" path="res://user_interfaces/inventory_dialog.tscn" id="10_xdv0w"]
+[ext_resource type="PackedScene" uid="uid://dwfweprgemv3h" path="res://assets/models/dom_2.tscn" id="11_kpv8f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xivq1"]
 resource_name = "Material"
@@ -61,8 +62,12 @@ sky_material = SubResource("PanoramaSkyMaterial_wc2v1")
 [sub_resource type="Environment" id="Environment_mjmsq"]
 background_mode = 2
 sky = SubResource("Sky_rgv1h")
+reflected_light_source = 1
 tonemap_mode = 2
 glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.6
+glow_blend_mode = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jb6bp"]
 
@@ -171,6 +176,9 @@ render_target_update_mode = 0
 
 [node name="InvestigationScene" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/SubViewportContainer/SubViewport" index="0" instance=ExtResource("10_g74l2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1000)
+
+[node name="dom_2" parent="." instance=ExtResource("11_kpv8f")]
+transform = Transform3D(-0.140815, 0, -0.990036, 0, 1, 0, 0.990036, 0, -0.140815, -6.84014, 1.90828, -1.61925)
 
 [editable path="stage/casset"]
 [editable path="stage/casset3"]
