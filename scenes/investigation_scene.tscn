@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfs61rfrstusc"]
+
+[ext_resource type="Script" path="res://scripts/dialog_scripts/object_investigation.gd" id="1_uursy"]
+[ext_resource type="Script" path="res://scripts/dialog_scripts/object_investigation_camera.gd" id="2_e1io2"]
+
+[sub_resource type="Environment" id="Environment_nchlw"]
+background_mode = 1
+background_color = Color(0.125911, 0.125911, 0.125911, 1)
+background_energy_multiplier = 0.68
+
+[node name="InvestigationScene" type="Node3D"]
+script = ExtResource("1_uursy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nchlw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.767344, 0.264836, -0.58399, 0.245369, 0.720144, 0.648988, 0.592433, -0.641291, 0.487616, -2.85993, 3.60794, 3.2233)
+sky_mode = 1
+
+[node name="InvestigationCamera" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.22117)
+script = ExtResource("2_e1io2")
+
+[node name="RotatingObject" type="Node3D" parent="."]
+unique_name_in_owner = true

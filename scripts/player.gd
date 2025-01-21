@@ -1,10 +1,12 @@
 extends CharacterBody3D
+class_name Character
 
 @onready var give_head = $give_head
 @onready var standing_collision_shape: CollisionShape3D = $standing_collision_shape
 @onready var crouching_collision_shape: CollisionShape3D = $crouching_collision_shape
-@onready var crouch_raycast: RayCast3D = $give_head/CrouchRayCast
-@onready var item_picker: RayCast3D = $give_head/pow
+@onready var crouch_raycast: RayCast3D = $CrouchRayCast
+
+@onready var item_interaction_raycast: RayCast3D = $give_head/InteractionSight
 
 @export var walking_speed = 5.0
 @export var sprinting_speed = 10.0
@@ -14,16 +16,16 @@ var lerp_speed = 10.0
 var direction = Vector3.ZERO
 var crouching_depth = -0.5
 
-const jump_velocity = 9.0
+const jump_velocity = 4.0
 const mouse_sens = 0.3
 
-var inventory: _Inventory = _Inventory.new()
+@onready var inventory: _Inventory = _Inventory.new()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
-	if (event is InputEventMouseMotion) && !$Inventory.visible:
+	if (event is InputEventMouseMotion) && !%InventoryDialog.visible:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 		give_head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 		give_head.rotation.x = clamp(give_head.rotation.x, deg_to_rad(-89), deg_to_rad(89))

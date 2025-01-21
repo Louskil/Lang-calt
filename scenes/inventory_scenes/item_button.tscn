@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bact5c6dll1at"]
+
+[ext_resource type="Script" path="res://scripts/dialog_scripts/item_button.gd" id="1_33tb0"]
+
+[node name="ItemButton" type="Button"]
+custom_minimum_size = Vector2(0, 40)
+size_flags_horizontal = 3
+script = ExtResource("1_33tb0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 40.0
+
+[node name="ItemIcon" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+expand_mode = 2
+
+[node name="ItemName" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 26)
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="ItemQuantity" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_horizontal = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

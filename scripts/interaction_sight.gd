@@ -1,5 +1,5 @@
 extends RayCast3D
-class_name Interaction_SightRayCast
+class_name Interaction_rc
 
 @onready var material
 @onready var overlay
@@ -12,9 +12,11 @@ func _physics_process(delta: float) -> void:
 		overlay.material_overlay = material
 		
 		if Input.is_action_just_pressed("interact"):
-			var item: _Item = collider.get_node("../../").item
-			print(item.Name)
-	
+			var object = collider.get_node("../../")
+			var character: Character = self.get_node("../../")
+			character.inventory.add_item(object.item)
+			object.queue_free()
+			
 	else:
 		if overlay != null:
 			overlay.material_overlay = null
