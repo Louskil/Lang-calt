@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dnfk4xpw5cfiy"]
+[gd_scene load_steps=23 format=4 uid="uid://dnfk4xpw5cfiy"]
 
 [ext_resource type="PackedScene" uid="uid://b7ugui7oj3fr0" path="res://assets/hdris/casset.tscn" id="1_bfmtq"]
 [ext_resource type="Texture2D" uid="uid://ceot7v4hiqpiw" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_qnl17"]
@@ -10,7 +10,9 @@
 [ext_resource type="Script" path="res://scripts/dialog_scripts/ui_root.gd" id="9_xf14e"]
 [ext_resource type="PackedScene" uid="uid://bfs61rfrstusc" path="res://scenes/investigation_scene.tscn" id="10_g74l2"]
 [ext_resource type="PackedScene" uid="uid://b3bd8ii0gvew2" path="res://user_interfaces/inventory_dialog.tscn" id="10_xdv0w"]
-[ext_resource type="PackedScene" uid="uid://dwfweprgemv3h" path="res://assets/models/dom_2.tscn" id="11_kpv8f"]
+[ext_resource type="PackedScene" uid="uid://dof43orx2qaba" path="res://assets/models/dom2/dom_2.tscn" id="11_kms7n"]
+[ext_resource type="PackedScene" uid="uid://cq4ttw88ilfhp" path="res://assets/models/dom1/dom_1.tscn" id="12_02i2p"]
+[ext_resource type="PackedScene" uid="uid://bd42le73t7i0v" path="res://assets/models/trees/tree.tscn" id="13_g0phd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xivq1"]
 resource_name = "Material"
@@ -120,6 +122,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CSGBox3D" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.307236, 0.0676813, 0.143025)
 use_collision = true
 size = Vector3(100, 0.1, 100)
 material = SubResource("StandardMaterial3D_3m6sm")
@@ -177,8 +180,14 @@ render_target_update_mode = 0
 [node name="InvestigationScene" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/SubViewportContainer/SubViewport" index="0" instance=ExtResource("10_g74l2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1000)
 
-[node name="dom_2" parent="." instance=ExtResource("11_kpv8f")]
-transform = Transform3D(-0.140815, 0, -0.990036, 0, 1, 0, 0.990036, 0, -0.140815, -6.84014, 1.90828, -1.61925)
+[node name="dom_2" parent="." instance=ExtResource("11_kms7n")]
+transform = Transform3D(1.275, 0, 0, 0, 1.275, 0, 0, 0, 1.275, -6.11804, 1.63123, 0.799752)
+
+[node name="dom_1" parent="." instance=ExtResource("12_02i2p")]
+transform = Transform3D(0.0321473, -0.000771269, -1.6997, 0.000561812, 1.7, -0.000760781, 1.6997, -0.000547326, 0.0321475, -17.8225, 1.76012, -5.70484)
+
+[node name="tree2" parent="." instance=ExtResource("13_g0phd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84216, 0.297345, -4.04287)
 
 [editable path="stage/casset"]
 [editable path="stage/casset3"]
