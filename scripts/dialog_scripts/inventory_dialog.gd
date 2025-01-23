@@ -3,16 +3,16 @@ extends Control
 
 @onready var ItemsContainer: GridContainer = %ItemsContainer
 @export var ItemButton: PackedScene
-@onready var Scene = $HSplitContainer/PanelContainer/SubViewportContainer/SubViewport/InvestigationScene
-
-func open(inventory: _Inventory):
+@onready var Scene = $HSplitContainer/PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/InvestigationScene
+@onready var ItemDescription = %DescriptionBox
+@onready var Player = %player
+func open(inventory: Inventory):
 	show()
 	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	for child in ItemsContainer.get_children():
 		child.queue_free()
-	inventory._test_get_items()
-	for item in inventory.get_items():
+	for item in Player.inventory.get_items():
 		var slot = ItemButton.instantiate()
 		ItemsContainer.add_child(slot)
 		slot.show_item(item)
@@ -20,4 +20,5 @@ func open(inventory: _Inventory):
 func close():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Scene.hide_object()
+	ItemDescription.text = ""
 	hide()
