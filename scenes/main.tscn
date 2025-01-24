@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dnfk4xpw5cfiy"]
+[gd_scene load_steps=27 format=4 uid="uid://dnfk4xpw5cfiy"]
 
 [ext_resource type="PackedScene" uid="uid://b7ugui7oj3fr0" path="res://assets/hdris/casset.tscn" id="1_bfmtq"]
 [ext_resource type="Texture2D" uid="uid://ceot7v4hiqpiw" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_qnl17"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cq4ttw88ilfhp" path="res://assets/models/dom1/dom_1.tscn" id="12_02i2p"]
 [ext_resource type="PackedScene" uid="uid://bd42le73t7i0v" path="res://assets/models/trees/tree.tscn" id="13_g0phd"]
 [ext_resource type="PackedScene" uid="uid://igguimasbvt" path="res://assets/models/landscape_.tscn" id="14_whbo7"]
+[ext_resource type="Texture2D" uid="uid://bhq1ol25r4og3" path="res://assets/textures/512x512/Metal/Horror_Metal_13-512x512.png" id="15_oyvnw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xivq1"]
 resource_name = "Material"
@@ -76,6 +77,13 @@ glow_blend_mode = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_neltk"]
 height = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fe7in"]
+albedo_texture = ExtResource("15_oyvnw")
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqh0v"]
+size = Vector3(0.419891, 0.555115, 0.682129)
 
 [node name="World" type="Node3D"]
 
@@ -161,7 +169,7 @@ unique_name_in_owner = true
 [node name="InteractionSight" type="RayCast3D" parent="player/give_head"]
 unique_name_in_owner = true
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0)
-collision_mask = 4
+collision_mask = 12
 script = ExtResource("6_mbql5")
 
 [node name="CrouchRayCast" type="RayCast3D" parent="player"]
@@ -197,7 +205,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84216, 0.297345, -4.04287)
 [node name="landscape " parent="." instance=ExtResource("14_whbo7")]
 transform = Transform3D(250, 0, 0, 0, 250, 0, 0, 0, 250, -19.8864, -186.505, 35.0089)
 
+[node name="TestTeleport" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 72.8839, 8.81495)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.25393, 1.93245, -1.14107)
+size = Vector3(0.3, 0.3, 0.3)
+material = SubResource("StandardMaterial3D_fe7in")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+collision_layer = 9
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00328064, -0.0135193, 0.158936)
+shape = SubResource("BoxShape3D_aqh0v")
+
 [editable path="stage/casset"]
 [editable path="stage/casset3"]
 [editable path="stage/casset2"]
 [editable path="UiRoot/InventoryDialog"]
+[editable path="dom_2"]
