@@ -20,7 +20,7 @@ func hide_object():
 		i.queue_free()
 	hide()
 
-func show_object(item: _Item):
+func show_object(item: Item):
 	show()
 	if %RotatingObject.get_child_count() > 0:
 		for i in %RotatingObject.get_children():

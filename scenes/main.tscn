@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dnfk4xpw5cfiy"]
+[gd_scene load_steps=24 format=4 uid="uid://dnfk4xpw5cfiy"]
 
 [ext_resource type="PackedScene" uid="uid://b7ugui7oj3fr0" path="res://assets/hdris/casset.tscn" id="1_bfmtq"]
 [ext_resource type="Texture2D" uid="uid://ceot7v4hiqpiw" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_qnl17"]
@@ -10,6 +10,10 @@
 [ext_resource type="Script" path="res://scripts/dialog_scripts/ui_root.gd" id="9_xf14e"]
 [ext_resource type="PackedScene" uid="uid://bfs61rfrstusc" path="res://scenes/investigation_scene.tscn" id="10_g74l2"]
 [ext_resource type="PackedScene" uid="uid://b3bd8ii0gvew2" path="res://user_interfaces/inventory_dialog.tscn" id="10_xdv0w"]
+[ext_resource type="PackedScene" uid="uid://dof43orx2qaba" path="res://assets/models/dom2/dom_2.tscn" id="11_kms7n"]
+[ext_resource type="PackedScene" uid="uid://cq4ttw88ilfhp" path="res://assets/models/dom1/dom_1.tscn" id="12_02i2p"]
+[ext_resource type="PackedScene" uid="uid://bd42le73t7i0v" path="res://assets/models/trees/tree.tscn" id="13_g0phd"]
+[ext_resource type="PackedScene" uid="uid://igguimasbvt" path="res://assets/models/landscape_.tscn" id="14_whbo7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xivq1"]
 resource_name = "Material"
@@ -61,8 +65,12 @@ sky_material = SubResource("PanoramaSkyMaterial_wc2v1")
 [sub_resource type="Environment" id="Environment_mjmsq"]
 background_mode = 2
 sky = SubResource("Sky_rgv1h")
+reflected_light_source = 1
 tonemap_mode = 2
 glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.6
+glow_blend_mode = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jb6bp"]
 
@@ -115,6 +123,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CSGBox3D" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.307236, 0.0676813, 0.143025)
 use_collision = true
 size = Vector3(100, 0.1, 100)
 material = SubResource("StandardMaterial3D_3m6sm")
@@ -143,16 +152,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592112, 0)
 shape = SubResource("CapsuleShape3D_neltk")
 
 [node name="give_head" type="Node3D" parent="player"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
-[node name="Camera3D" type="Camera3D" parent="player/give_head"]
+[node name="PlayerCamera" type="Camera3D" parent="player/give_head"]
+unique_name_in_owner = true
 
 [node name="InteractionSight" type="RayCast3D" parent="player/give_head"]
+unique_name_in_owner = true
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0)
 collision_mask = 4
 script = ExtResource("6_mbql5")
 
 [node name="CrouchRayCast" type="RayCast3D" parent="player"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.84288e-08, 0)
 target_position = Vector3(0, 2, 0)
 
@@ -165,12 +178,24 @@ visible = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SubViewport" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/SubViewportContainer" index="0"]
+[node name="SubViewport" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/VBoxContainer/SubViewportContainer" index="0"]
 size = Vector2i(2, 2)
 render_target_update_mode = 0
 
-[node name="InvestigationScene" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/SubViewportContainer/SubViewport" index="0" instance=ExtResource("10_g74l2")]
+[node name="InvestigationScene" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/VBoxContainer/SubViewportContainer/SubViewport" index="0" instance=ExtResource("10_g74l2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1000)
+
+[node name="dom_2" parent="." instance=ExtResource("11_kms7n")]
+transform = Transform3D(1.275, 0, 0, 0, 1.275, 0, 0, 0, 1.275, -6.11804, 2.06196, 0.799752)
+
+[node name="dom_1" parent="." instance=ExtResource("12_02i2p")]
+transform = Transform3D(0.0321473, -0.000771269, -1.6997, 0.000561812, 1.7, -0.000760781, 1.6997, -0.000547326, 0.0321475, -17.8225, 1.76012, -5.70484)
+
+[node name="tree2" parent="." instance=ExtResource("13_g0phd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84216, 0.297345, -4.04287)
+
+[node name="landscape " parent="." instance=ExtResource("14_whbo7")]
+transform = Transform3D(250, 0, 0, 0, 250, 0, 0, 0, 250, -19.8864, -186.505, 35.0089)
 
 [editable path="stage/casset"]
 [editable path="stage/casset3"]
