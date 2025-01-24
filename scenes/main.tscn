@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dnfk4xpw5cfiy"]
+[gd_scene load_steps=28 format=4 uid="uid://dnfk4xpw5cfiy"]
 
 [ext_resource type="PackedScene" uid="uid://b7ugui7oj3fr0" path="res://assets/hdris/casset.tscn" id="1_bfmtq"]
 [ext_resource type="Texture2D" uid="uid://ceot7v4hiqpiw" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_qnl17"]
@@ -13,8 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://dof43orx2qaba" path="res://assets/models/dom2/dom_2.tscn" id="11_kms7n"]
 [ext_resource type="PackedScene" uid="uid://cq4ttw88ilfhp" path="res://assets/models/dom1/dom_1.tscn" id="12_02i2p"]
 [ext_resource type="PackedScene" uid="uid://bd42le73t7i0v" path="res://assets/models/trees/tree.tscn" id="13_g0phd"]
-[ext_resource type="PackedScene" uid="uid://igguimasbvt" path="res://assets/models/landscape_.tscn" id="14_whbo7"]
+[ext_resource type="PackedScene" uid="uid://dfptwmr4vade8" path="res://assets/models/landscape_.tscn" id="15_lwscg"]
 [ext_resource type="Texture2D" uid="uid://bhq1ol25r4og3" path="res://assets/textures/512x512/Metal/Horror_Metal_13-512x512.png" id="15_oyvnw"]
+[ext_resource type="PackedScene" uid="uid://cuqb5ghpgej3u" path="res://assets/models/church/church.tscn" id="16_yuesy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xivq1"]
 resource_name = "Material"
@@ -202,9 +203,6 @@ transform = Transform3D(0.0321473, -0.000771269, -1.6997, 0.000561812, 1.7, -0.0
 [node name="tree2" parent="." instance=ExtResource("13_g0phd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84216, 0.297345, -4.04287)
 
-[node name="landscape " parent="." instance=ExtResource("14_whbo7")]
-transform = Transform3D(250, 0, 0, 0, 250, 0, 0, 0, 250, -19.8864, -186.505, 35.0089)
-
 [node name="TestTeleport" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 72.8839, 8.81495)
 
@@ -220,6 +218,12 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00328064, -0.0135193, 0.158936)
 shape = SubResource("BoxShape3D_aqh0v")
+
+[node name="landscape " parent="." instance=ExtResource("15_lwscg")]
+transform = Transform3D(75, 0, 0, 0, 75, 0, 0, 0, 75, 63.4537, -582.154, -5.9033)
+
+[node name="church" parent="." instance=ExtResource("16_yuesy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4419, -0.882318, -2.32252)
 
 [editable path="stage/casset"]
 [editable path="stage/casset3"]
