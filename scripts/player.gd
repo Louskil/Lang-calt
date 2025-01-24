@@ -4,9 +4,9 @@ class_name Character
 @onready var head: Node3D = %give_head
 @onready var standing_collision: CollisionShape3D = $standing_collision_shape
 @onready var crouching_collision: CollisionShape3D = $crouching_collision_shape
-@onready var crouch_raycast = %crouch_raycast
+@onready var crouch_raycast = %CrouchRayCast
 @onready var interaction_raycast = %InteractionSight
-@onready var camera = $give_head/Camera3D
+@onready var camera = %PlayerCamera
 @onready var dialog = %InventoryDialog
 @onready var inventory : Inventory = Inventory.new()
 
@@ -30,7 +30,7 @@ const mouse_sensivity = 0.3
 # Base fov is just as its defined is camera, maybe I had to set it's value FROM the camera. Le fov_change can be used to
 # adjust how the picture will stretch while moving
 const base_fov = 75.0
-const fov_change = 1.1
+const fov_change = 1.3
 
 var direction = Vector3.ZERO
 

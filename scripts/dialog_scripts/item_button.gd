@@ -1,15 +1,10 @@
 extends Button
 
-enum State{
-	inventory, 
-	invesigation
-}
-
 @onready var Icon = %ItemIcon
 @onready var ItemName = %ItemName
 @onready var ItemQuantity = %ItemQuantity
 @onready var ItemDialog: Invetory_Dialog = get_node("../../../../../")
-@onready var Scene = get_node("../../../../PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/InvestigationScene/")
+@onready var Scene = get_node("../../../../PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/InvestigationScene")
 @onready var ItemDescription: Label = get_node("../../../../PanelContainer/VBoxContainer/DescriptionBox")
 @onready var _item: Item
 

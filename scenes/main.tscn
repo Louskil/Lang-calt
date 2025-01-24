@@ -152,16 +152,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592112, 0)
 shape = SubResource("CapsuleShape3D_neltk")
 
 [node name="give_head" type="Node3D" parent="player"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
-[node name="Camera3D" type="Camera3D" parent="player/give_head"]
+[node name="PlayerCamera" type="Camera3D" parent="player/give_head"]
+unique_name_in_owner = true
 
 [node name="InteractionSight" type="RayCast3D" parent="player/give_head"]
+unique_name_in_owner = true
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0)
 collision_mask = 4
 script = ExtResource("6_mbql5")
 
 [node name="CrouchRayCast" type="RayCast3D" parent="player"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.84288e-08, 0)
 target_position = Vector3(0, 2, 0)
 
@@ -174,15 +178,15 @@ visible = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SubViewport" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/SubViewportContainer" index="0"]
+[node name="SubViewport" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/VBoxContainer/SubViewportContainer" index="0"]
 size = Vector2i(2, 2)
 render_target_update_mode = 0
 
-[node name="InvestigationScene" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/SubViewportContainer/SubViewport" index="0" instance=ExtResource("10_g74l2")]
+[node name="InvestigationScene" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/VBoxContainer/SubViewportContainer/SubViewport" index="0" instance=ExtResource("10_g74l2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1000)
 
 [node name="dom_2" parent="." instance=ExtResource("11_kms7n")]
-transform = Transform3D(1.275, 0, 0, 0, 1.275, 0, 0, 0, 1.275, -6.11804, 1.63123, 0.799752)
+transform = Transform3D(1.275, 0, 0, 0, 1.275, 0, 0, 0, 1.275, -6.11804, 2.06196, 0.799752)
 
 [node name="dom_1" parent="." instance=ExtResource("12_02i2p")]
 transform = Transform3D(0.0321473, -0.000771269, -1.6997, 0.000561812, 1.7, -0.000760781, 1.6997, -0.000547326, 0.0321475, -17.8225, 1.76012, -5.70484)
