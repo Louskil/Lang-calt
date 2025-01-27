@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dnfk4xpw5cfiy"]
+[gd_scene load_steps=30 format=4 uid="uid://dnfk4xpw5cfiy"]
 
 [ext_resource type="PackedScene" uid="uid://b7ugui7oj3fr0" path="res://assets/hdris/casset.tscn" id="1_bfmtq"]
 [ext_resource type="Texture2D" uid="uid://ceot7v4hiqpiw" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_qnl17"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dfptwmr4vade8" path="res://assets/models/landscape_.tscn" id="15_lwscg"]
 [ext_resource type="Texture2D" uid="uid://bhq1ol25r4og3" path="res://assets/textures/512x512/Metal/Horror_Metal_13-512x512.png" id="15_oyvnw"]
 [ext_resource type="PackedScene" uid="uid://cuqb5ghpgej3u" path="res://assets/models/church/church.tscn" id="16_yuesy"]
+[ext_resource type="PackedScene" uid="uid://dfn4qfik20xs5" path="res://scenes/cave.tscn" id="17_w408u"]
+[ext_resource type="PackedScene" uid="uid://cd0hrtcgb4l0w" path="res://scenes/dom2_inside.blend" id="18_j7pm3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xivq1"]
 resource_name = "Material"
@@ -195,7 +197,13 @@ render_target_update_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1000)
 
 [node name="dom_2" parent="." instance=ExtResource("11_kms7n")]
-transform = Transform3D(1.275, 0, 0, 0, 1.275, 0, 0, 0, 1.275, -6.11804, 2.06196, 0.799752)
+transform = Transform3D(1.275, 0, 0, 0, 1.275, 0, 0, 0, 1.275, -6.96298, 2.10498, 0.556214)
+
+[node name="platform" parent="dom_2" index="2"]
+transform = Transform3D(73.0967, -2.22083e-07, 0.679104, -2.14137, -7.58093e-06, 23.1816, -1.51818e-21, -63.6207, -2.76464e-06, 1.0596, -1.17001, -1.91139)
+
+[node name="CollisionShape3D" parent="dom_2/stairs/StaticBody3D" index="0"]
+transform = Transform3D(1, 3.38813e-21, -2.44919e-20, 0, 1, 0, -2.84217e-14, -2.84217e-14, 1, 9.31323e-10, 0, -0.000415475)
 
 [node name="dom_1" parent="." instance=ExtResource("12_02i2p")]
 transform = Transform3D(0.0321473, -0.000771269, -1.6997, 0.000561812, 1.7, -0.000760781, 1.6997, -0.000547326, 0.0321475, -17.8225, 1.76012, -5.70484)
@@ -223,7 +231,13 @@ shape = SubResource("BoxShape3D_aqh0v")
 transform = Transform3D(75, 0, 0, 0, 75, 0, 0, 0, 75, 63.4537, -582.154, -5.9033)
 
 [node name="church" parent="." instance=ExtResource("16_yuesy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4419, -0.882318, -2.32252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4419, 1.24177, -2.32252)
+
+[node name="cave" parent="." instance=ExtResource("17_w408u")]
+transform = Transform3D(-4.44791, 0, -1.32125, 0, 4.64, 0, 1.32125, 0, -4.44791, -272.958, -218.925, -783.279)
+
+[node name="dom2_inside" parent="." instance=ExtResource("18_j7pm3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4135, 0.117682, -14.3248)
 
 [editable path="stage/casset"]
 [editable path="stage/casset3"]

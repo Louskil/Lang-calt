@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfn4qfik20xs5"]
+
+[ext_resource type="PackedScene" uid="uid://dad70ysf2kylt" path="res://scenes/cave.blend" id="1_3ikco"]
+
+[node name="cave" instance=ExtResource("1_3ikco")]
