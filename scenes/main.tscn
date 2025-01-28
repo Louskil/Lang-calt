@@ -10,14 +10,14 @@
 [ext_resource type="Script" path="res://scripts/dialog_scripts/ui_root.gd" id="9_xf14e"]
 [ext_resource type="PackedScene" uid="uid://bfs61rfrstusc" path="res://scenes/investigation_scene.tscn" id="10_g74l2"]
 [ext_resource type="PackedScene" uid="uid://b3bd8ii0gvew2" path="res://user_interfaces/inventory_dialog.tscn" id="10_xdv0w"]
-[ext_resource type="PackedScene" uid="uid://dof43orx2qaba" path="res://assets/models/dom2/dom_2.tscn" id="11_kms7n"]
-[ext_resource type="PackedScene" uid="uid://cq4ttw88ilfhp" path="res://assets/models/dom1/dom_1.tscn" id="12_02i2p"]
 [ext_resource type="PackedScene" uid="uid://bd42le73t7i0v" path="res://assets/models/trees/tree.tscn" id="13_g0phd"]
 [ext_resource type="PackedScene" uid="uid://dfptwmr4vade8" path="res://assets/models/landscape_.tscn" id="15_lwscg"]
 [ext_resource type="Texture2D" uid="uid://bhq1ol25r4og3" path="res://assets/textures/512x512/Metal/Horror_Metal_13-512x512.png" id="15_oyvnw"]
-[ext_resource type="PackedScene" uid="uid://cuqb5ghpgej3u" path="res://assets/models/church/church.tscn" id="16_yuesy"]
 [ext_resource type="PackedScene" uid="uid://dfn4qfik20xs5" path="res://scenes/cave.tscn" id="17_w408u"]
-[ext_resource type="PackedScene" uid="uid://cd0hrtcgb4l0w" path="res://scenes/dom2_inside.blend" id="18_j7pm3"]
+[ext_resource type="PackedScene" uid="uid://in83jtjuliv3" path="res://assets/materials/church/church_inside.tscn" id="18_boulg"]
+[ext_resource type="PackedScene" uid="uid://dvtqlly5rgyrb" path="res://assets/models/deer.tscn" id="19_bvwh0"]
+[ext_resource type="PackedScene" uid="uid://s1ngob5870vc" path="res://scenes/dom_1_inside.tscn" id="19_f7uyb"]
+[ext_resource type="PackedScene" uid="uid://duo5tgj45ja6p" path="res://scenes/dom_2_inside.tscn" id="20_j6pp0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xivq1"]
 resource_name = "Material"
@@ -196,20 +196,8 @@ render_target_update_mode = 0
 [node name="InvestigationScene" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/VBoxContainer/SubViewportContainer/SubViewport" index="0" instance=ExtResource("10_g74l2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1000)
 
-[node name="dom_2" parent="." instance=ExtResource("11_kms7n")]
-transform = Transform3D(1.275, 0, 0, 0, 1.275, 0, 0, 0, 1.275, -6.96298, 2.10498, 0.556214)
-
-[node name="platform" parent="dom_2" index="2"]
-transform = Transform3D(73.0967, -2.22083e-07, 0.679104, -2.14137, -7.58093e-06, 23.1816, -1.51818e-21, -63.6207, -2.76464e-06, 1.0596, -1.17001, -1.91139)
-
-[node name="CollisionShape3D" parent="dom_2/stairs/StaticBody3D" index="0"]
-transform = Transform3D(1, 3.38813e-21, -2.44919e-20, 0, 1, 0, -2.84217e-14, -2.84217e-14, 1, 9.31323e-10, 0, -0.000415475)
-
-[node name="dom_1" parent="." instance=ExtResource("12_02i2p")]
-transform = Transform3D(0.0321473, -0.000771269, -1.6997, 0.000561812, 1.7, -0.000760781, 1.6997, -0.000547326, 0.0321475, -17.8225, 1.76012, -5.70484)
-
 [node name="tree2" parent="." instance=ExtResource("13_g0phd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84216, 0.297345, -4.04287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81423, 0.337615, -4.01219)
 
 [node name="TestTeleport" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 72.8839, 8.81495)
@@ -227,20 +215,25 @@ collision_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00328064, -0.0135193, 0.158936)
 shape = SubResource("BoxShape3D_aqh0v")
 
-[node name="landscape " parent="." instance=ExtResource("15_lwscg")]
-transform = Transform3D(75, 0, 0, 0, 75, 0, 0, 0, 75, 63.4537, -582.154, -5.9033)
-
-[node name="church" parent="." instance=ExtResource("16_yuesy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4419, 1.24177, -2.32252)
+[node name="landscape" parent="." instance=ExtResource("15_lwscg")]
+transform = Transform3D(75, 0, 0, 0, 75, 0, 0, 0, 75, 63.6139, -582.154, -6.11508)
 
 [node name="cave" parent="." instance=ExtResource("17_w408u")]
 transform = Transform3D(-4.44791, 0, -1.32125, 0, 4.64, 0, 1.32125, 0, -4.44791, -272.958, -218.925, -783.279)
 
-[node name="dom2_inside" parent="." instance=ExtResource("18_j7pm3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4135, 0.117682, -14.3248)
+[node name="Deer2" parent="." instance=ExtResource("19_bvwh0")]
+transform = Transform3D(1, 0.000682858, 0.000425904, -0.000682425, 0.999999, -0.000987883, -0.000426598, 0.000987584, 0.999999, -25.5704, 0.117681, 9.80454)
+
+[node name="dom1_inside" parent="." instance=ExtResource("19_f7uyb")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -14.2558, 1.96779, -14.6922)
+
+[node name="dom2_inside" parent="." instance=ExtResource("20_j6pp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88571, 2.59087, -9.25896)
+
+[node name="church_inside" parent="." instance=ExtResource("18_boulg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4399, 1.26603, -10.3993)
 
 [editable path="stage/casset"]
 [editable path="stage/casset3"]
 [editable path="stage/casset2"]
 [editable path="UiRoot/InventoryDialog"]
-[editable path="dom_2"]

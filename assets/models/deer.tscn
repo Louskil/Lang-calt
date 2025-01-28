@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvtqlly5rgyrb"]
+
+[ext_resource type="PackedScene" uid="uid://dxirirk67r1ks" path="res://assets/models/Deer.glb" id="1_bdkyc"]
+
+[node name="Deer2" instance=ExtResource("1_bdkyc")]
+transform = Transform3D(0.233208, -0.972427, 0, 0.972427, 0.233208, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/12/scale = Vector3(1, 1, 1)

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://duo5tgj45ja6p"]
+
+[ext_resource type="PackedScene" uid="uid://cw8oxbxetrrad" path="res://scenes/dom2_inside.blend" id="1_6tfa4"]
+[ext_resource type="Material" uid="uid://bmjjnam0tiib0" path="res://assets/materials/dom2/dom2_main.tres" id="2_gpgkc"]
+[ext_resource type="Material" uid="uid://dyv8yj7erkxu0" path="res://assets/materials/dom2/dom2_roof.tres" id="3_d2ufs"]
+[ext_resource type="Material" uid="uid://84mrmc30o3v8" path="res://assets/materials/dom2/dom2_stairs.tres" id="4_kb1vj"]
+[ext_resource type="Material" uid="uid://dmwtiqct3n83j" path="res://assets/materials/window_material.tres" id="5_k3rmt"]
+[ext_resource type="Material" uid="uid://djys48ymj2bp0" path="res://assets/materials/door_material.tres" id="6_4y6re"]
+
+[node name="dom2_inside" instance=ExtResource("1_6tfa4")]
+
+[node name="house_main" parent="." index="0"]
+material_override = ExtResource("2_gpgkc")
+
+[node name="roof_small" parent="." index="1"]
+material_override = ExtResource("3_d2ufs")
+
+[node name="roof_big" parent="." index="2"]
+material_override = ExtResource("3_d2ufs")
+
+[node name="stairs" parent="." index="3"]
+material_override = ExtResource("4_kb1vj")
+
+[node name="platform" parent="." index="4"]
+material_override = ExtResource("4_kb1vj")
+
+[node name="windows" parent="." index="7"]
+material_override = ExtResource("5_k3rmt")
+
+[node name="house_main_001" parent="." index="8"]
+material_override = ExtResource("6_4y6re")
+
+[node name="door_001" parent="." index="9"]
+material_override = ExtResource("6_4y6re")
+
+[node name="house_main_002" parent="." index="10"]
+material_override = ExtResource("5_k3rmt")
+
+[node name="windows_001" parent="." index="11"]
+material_override = ExtResource("5_k3rmt")
+
+[node name="floor" parent="." index="12"]
+material_override = ExtResource("4_kb1vj")

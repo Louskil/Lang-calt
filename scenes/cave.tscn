@@ -1,5 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfn4qfik20xs5"]
+[gd_scene load_steps=5 format=3 uid="uid://dfn4qfik20xs5"]
 
 [ext_resource type="PackedScene" uid="uid://dad70ysf2kylt" path="res://scenes/cave.blend" id="1_3ikco"]
+[ext_resource type="Material" uid="uid://dannwjsuixufh" path="res://assets/materials/cave/cave.tres" id="2_cyawi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qsiq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mfdf"]
+albedo_color = Color(0.768627, 0.117647, 0.227451, 1)
+metallic_specular = 0.0
 
 [node name="cave" instance=ExtResource("1_3ikco")]
+
+[node name="Cylinder" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.00774193, 0.0314989, -0.015769)
+surface_material_override/0 = ExtResource("2_cyawi")
+
+[node name="walls" parent="." index="2"]
+material_override = ExtResource("2_cyawi")
+
+[node name="ceiling" parent="." index="3"]
+transform = Transform3D(6, 0, 0, 0, -2.62268e-07, -6, 0, 6, -2.62268e-07, -1.412, 27.347, -93.1204)
+material_override = SubResource("StandardMaterial3D_4qsiq")
+
+[node name="Cylinder_002" parent="." index="4"]
+transform = Transform3D(6, 0, 0, 0, -2.62268e-07, -6, 0, 6, -2.62268e-07, -1.412, 27.347, -93.1204)
+
+[node name="floor" parent="." index="5"]
+transform = Transform3D(6, 0, 0, 0, -2.62268e-07, -6, 0, 6, -2.62268e-07, -1.412, 27.347, -93.1204)
+surface_material_override/0 = SubResource("StandardMaterial3D_3mfdf")
