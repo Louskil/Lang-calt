@@ -6,4 +6,8 @@
 transform = Transform3D(0.233208, -0.972427, 0, 0.972427, 0.233208, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
+bones/8/scale = Vector3(0.999996, 1.00001, 0.999998)
+bones/9/scale = Vector3(1, 1, 1)
 bones/12/scale = Vector3(1, 1, 1)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/scale = Vector3(1, 1, 1)

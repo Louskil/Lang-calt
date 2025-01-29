@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dnfk4xpw5cfiy"]
+[gd_scene load_steps=34 format=4 uid="uid://dnfk4xpw5cfiy"]
 
 [ext_resource type="PackedScene" uid="uid://b7ugui7oj3fr0" path="res://assets/hdris/casset.tscn" id="1_bfmtq"]
 [ext_resource type="Texture2D" uid="uid://ceot7v4hiqpiw" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_qnl17"]
@@ -18,7 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://in83jtjuliv3" path="res://assets/materials/church/church_inside.tscn" id="18_boulg"]
 [ext_resource type="PackedScene" uid="uid://dvtqlly5rgyrb" path="res://assets/models/deer.tscn" id="19_bvwh0"]
 [ext_resource type="PackedScene" uid="uid://s1ngob5870vc" path="res://scenes/dom_1_inside.tscn" id="19_f7uyb"]
+[ext_resource type="PackedScene" uid="uid://b0fmjtgrsn6nj" path="res://assets/models/sled.tscn" id="20_3awnd"]
 [ext_resource type="PackedScene" uid="uid://duo5tgj45ja6p" path="res://scenes/dom_2_inside.tscn" id="20_j6pp0"]
+[ext_resource type="PackedScene" uid="uid://doclvfxwv7yg1" path="res://assets/models/pastor.glb" id="21_5vvar"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xivq1"]
 resource_name = "Material"
@@ -76,6 +78,7 @@ glow_enabled = true
 glow_intensity = 1.0
 glow_strength = 0.6
 glow_blend_mode = 1
+fog_enabled = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jb6bp"]
 
@@ -235,7 +238,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00328064, -0.0135193, 0.158
 shape = SubResource("BoxShape3D_aqh0v")
 
 [node name="landscape" parent="." instance=ExtResource("15_lwscg")]
-transform = Transform3D(75, 0, 0, 0, 75, 0, 0, 0, 75, 63.6139, -582.154, -6.11508)
+transform = Transform3D(75, 0, 0, 0, 75, 0, 0, 0, 75, 63.4939, -582.18, -6.16981)
 
 [node name="cave" parent="." instance=ExtResource("17_w408u")]
 transform = Transform3D(-4.44791, 0, -1.32125, 0, 4.64, 0, 1.32125, 0, -4.44791, -272.958, -218.925, -783.279)
@@ -249,8 +252,14 @@ transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -14.2558, 1.96779, -14.
 [node name="dom2_inside" parent="." instance=ExtResource("20_j6pp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88571, 2.59087, -9.25896)
 
+[node name="sled" parent="." instance=ExtResource("20_3awnd")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -42.6922, 0.117682, 43.6439)
+
 [node name="church_inside" parent="." instance=ExtResource("18_boulg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4399, 1.26603, -10.3993)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4371, -0.0756209, 8.78491)
+
+[node name="pastor" parent="." instance=ExtResource("21_5vvar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0755, 0.0353215, 21.1522)
 
 [editable path="stage/casset"]
 [editable path="stage/casset3"]
