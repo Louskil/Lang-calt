@@ -9,7 +9,7 @@ extends Control
 func open(inventory: Inventory):
 	show()
 	
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	for child in ItemsContainer.get_children():
 		child.queue_free()
 	for item in Player.inventory.get_items():
@@ -18,7 +18,7 @@ func open(inventory: Inventory):
 		slot.show_item(item)
 
 func close():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 	Scene.hide_object()
 	ItemDescription.text = ""
 	hide()

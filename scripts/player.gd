@@ -7,8 +7,9 @@ class_name Character
 @onready var crouch_raycast = %CrouchRayCast
 @onready var interaction_raycast = %InteractionSight
 @onready var camera = %PlayerCamera
-@onready var dialog = %InventoryDialog
 @onready var inventory : Inventory = Inventory.new()
+
+var is_locked = false 
 
 const walk_speed = 5.0
 const sprint_speed = 8.0
@@ -38,7 +39,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event: InputEvent) -> void:
-	if (event is InputEventMouseMotion) and !dialog.visible:
+	if (event is InputEventMouseMotion) and !is_locked:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensivity))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensivity))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
@@ -75,7 +76,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Direction works just like it did before
 	var input_direction = Input.get_vector("left", "right", "forward", "backward")
-	direction = lerp(direction, (transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized(), delta*lerp_speed)
+	
+	if !is_locked:
+		direction = lerp(direction, (transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized(), delta*lerp_speed)
 	
 	
 	# An additional layer of this statement was added to allow some control and inertia while the player is falling

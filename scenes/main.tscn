@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dnfk4xpw5cfiy"]
+[gd_scene load_steps=32 format=4 uid="uid://dnfk4xpw5cfiy"]
 
 [ext_resource type="PackedScene" uid="uid://b7ugui7oj3fr0" path="res://assets/hdris/casset.tscn" id="1_bfmtq"]
 [ext_resource type="Texture2D" uid="uid://ceot7v4hiqpiw" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_qnl17"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/dialog_scripts/ui_root.gd" id="9_xf14e"]
 [ext_resource type="PackedScene" uid="uid://bfs61rfrstusc" path="res://scenes/investigation_scene.tscn" id="10_g74l2"]
 [ext_resource type="PackedScene" uid="uid://b3bd8ii0gvew2" path="res://user_interfaces/inventory_dialog.tscn" id="10_xdv0w"]
+[ext_resource type="PackedScene" uid="uid://cup2ubod6wm8t" path="res://user_interfaces/map_dialog.tscn" id="11_0hlsx"]
 [ext_resource type="PackedScene" uid="uid://bd42le73t7i0v" path="res://assets/models/trees/tree.tscn" id="13_g0phd"]
 [ext_resource type="PackedScene" uid="uid://dfptwmr4vade8" path="res://assets/models/landscape_.tscn" id="15_lwscg"]
 [ext_resource type="Texture2D" uid="uid://bhq1ol25r4og3" path="res://assets/textures/512x512/Metal/Horror_Metal_13-512x512.png" id="15_oyvnw"]
@@ -80,6 +81,9 @@ glow_blend_mode = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_neltk"]
 height = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mw5d"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fe7in"]
 albedo_texture = ExtResource("15_oyvnw")
@@ -180,6 +184,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.84288e-08, 0)
 target_position = Vector3(0, 2, 0)
 
+[node name="player_marker" type="CSGSphere3D" parent="player"]
+transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 4.62516, 0)
+visible = false
+material = SubResource("StandardMaterial3D_1mw5d")
+
 [node name="UiRoot" type="CanvasLayer" parent="."]
 script = ExtResource("9_xf14e")
 
@@ -195,6 +204,16 @@ render_target_update_mode = 0
 
 [node name="InvestigationScene" parent="UiRoot/InventoryDialog/HSplitContainer/PanelContainer/VBoxContainer/SubViewportContainer/SubViewport" index="0" instance=ExtResource("10_g74l2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1000)
+
+[node name="map_dialog" parent="UiRoot" instance=ExtResource("11_0hlsx")]
+unique_name_in_owner = true
+visible = false
+
+[node name="SubViewport" parent="UiRoot/map_dialog/SubViewportContainer" index="0"]
+render_target_update_mode = 0
+
+[node name="map_camera" type="Camera3D" parent="UiRoot/map_dialog/SubViewportContainer/SubViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 400, 0)
 
 [node name="tree2" parent="." instance=ExtResource("13_g0phd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81423, 0.337615, -4.01219)
@@ -237,3 +256,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4399, 1.26603, -10.3993)
 [editable path="stage/casset3"]
 [editable path="stage/casset2"]
 [editable path="UiRoot/InventoryDialog"]
+[editable path="UiRoot/map_dialog"]
