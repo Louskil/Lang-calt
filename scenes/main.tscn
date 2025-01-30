@@ -179,7 +179,7 @@ unique_name_in_owner = true
 [node name="InteractionSight" type="RayCast3D" parent="player/give_head"]
 unique_name_in_owner = true
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0)
-collision_mask = 12
+collision_mask = 28
 script = ExtResource("6_mbql5")
 
 [node name="CrouchRayCast" type="RayCast3D" parent="player"]
@@ -253,7 +253,7 @@ transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -14.2558, 1.96779, -14.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88571, 2.59087, -9.25896)
 
 [node name="sled" parent="." instance=ExtResource("20_3awnd")]
-transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -42.6922, 0.117682, 43.6439)
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -36.1468, 0.670353, 36.6439)
 
 [node name="church_inside" parent="." instance=ExtResource("18_boulg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4371, -0.0756209, 8.78491)
@@ -266,3 +266,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0755, 0.0353215, 21.1522)
 [editable path="stage/casset2"]
 [editable path="UiRoot/InventoryDialog"]
 [editable path="UiRoot/map_dialog"]
+[editable path="sled"]

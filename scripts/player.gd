@@ -9,6 +9,9 @@ class_name Character
 @onready var camera = %PlayerCamera
 @onready var inventory : Inventory = Inventory.new()
 
+enum States {ON_FOOT, ON_SLED}
+var state: States = States.ON_FOOT
+
 var is_locked = false 
 
 const walk_speed = 5.0
@@ -72,24 +75,29 @@ func _physics_process(delta: float) -> void:
 			
 	# Gravity works just like it did before
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if state == States.ON_SLED:
+			pass
+		else:
+			velocity += get_gravity() * delta
 	
 	# Direction works just like it did before
 	var input_direction = Input.get_vector("left", "right", "forward", "backward")
 	
 	if !is_locked:
 		direction = lerp(direction, (transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized(), delta*lerp_speed)
+	else:
+		speed = 0
 	
 	
 	# An additional layer of this statement was added to allow some control and inertia while the player is falling
-	if is_on_floor():
+	if is_on_floor() and state == States.ON_FOOT:
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 			velocity.z = move_toward(velocity.z, 0, speed)
-	else:
+	elif state == States.ON_FOOT:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 2.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 2.0)
 		

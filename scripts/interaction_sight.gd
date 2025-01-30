@@ -24,6 +24,19 @@ func _physics_process(delta: float) -> void:
 				var object = collider.get_node("../../")
 				character.inventory.add_item(object.item)
 				object.queue_free()
+			elif layer == 17:
+				#print("test seat")
+				var seat: Node3D = self.get_node("../../../sled")
+				character.speed = 0
+				character.velocity.x = 0
+				character.velocity.y = 0
+				character.velocity.z = 0
+				if character.state == character.States.ON_SLED:
+					character.state = character.States.ON_FOOT
+				else:
+					character.position = seat.position
+					character.state = character.States.ON_SLED
+				pass
 			else:
 				var marker: Marker3D = self.get_node("../../../TestTeleport") 
 				character.position = marker.position
